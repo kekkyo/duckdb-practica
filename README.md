@@ -1,1 +1,2 @@
-# duckdb-practica
+# Proyectos Integradores
+Materia: Análisis y exploración de datos
