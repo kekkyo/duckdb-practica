@@ -1,0 +1,138 @@
+\documentclass[12pt,letterpaper]{article}
+
+% --- PAQUETES NECESARIOS ---
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-tabla]{babel} % Idioma español
+\usepackage[margin=2.5cm]{geometry}  % Márgenes
+\usepackage{graphicx}                % Para insertar imágenes
+\usepackage{amsmath,amssymb}         % Símbolos matemáticos
+\usepackage{setspace}                % Interlineado
+\usepackage{hyperref}                % Enlaces interactivos (sin guion)
+\usepackage{cite}                    % Manejo de citas bibliográficas
+
+\onehalfspacing % Interlineado de 1.5
+
+\begin{document}
+
+% =========================================================
+% PORTADA INSTITUCIONAL
+% =========================================================
+\begin{titlepage}
+    \centering
+    
+    % --- ENCABEZADO CON LOGOS ---
+    % Reemplaza "logo_tecnm.png" y "logo_cenidet.png" con los nombres reales de tus imágenes en Overleaf
+    \begin{minipage}{0.45\textwidth}
+        \begin{flushleft}
+            \includegraphics[height=1.8cm]{example-image-a} % Imagen simulada para TecNM
+        \end{flushleft}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+        \begin{flushright}
+            \includegraphics[height=1.8cm]{example-image-b} % Imagen simulada para CENIDET
+        \end{flushright}
+    \end{minipage}
+    
+    \vspace{1cm}
+    
+    % --- INSTITUCIÓN ---
+    {\bfseries\large TECNOLÓGICO NACIONAL DE MÉXICO} \\[0.3cm]
+    {\bfseries\large INSTITUTO TECNOLÓGICO DE CUAUTLA} \\[0.8cm]
+    
+    % --- PROGRAMA Y SEMESTRE ---
+    {\bfseries\large INGENIERÍA EN SISTEMAS COMPUTACIONALES} \\[0.2cm]
+    {\bfseries\large ESPECIALIDAD INTELIGENCIA DE NEGOCIOS Y CIENCIA DE DATOS} \\[0.2cm]
+    {\bfseries\large SÉPTIMO SEMESTRE} \\[0.8cm]
+    
+    % --- PERIODO Y MATERIA ---
+    {\bfseries AGOSTO - DICIEMBRE 2026} \\[0.2cm]
+    {\bfseries INFORME TÉCNICO - UNIDAD I} \\[0.8cm]
+    
+    % --- TÍTULO DE LA ACTIVIDAD / PROYECTO ---
+    {\bfseries\Large PROYECTO INTEGRADOR 0} \\[0.3cm]
+    {\bfseries\large DISEÑO Y SIMULACIÓN DE SISTEMAS CONTROLADOS} \\[1.2cm]
+    
+    % --- PRESENTADO POR ---
+    {\small PRESENTADO POR:} \\[0.1cm]
+    {\bfseries ARÍSTIDES CABALLERO ALFARO} \\[0.6cm]
+    
+    % --- DIRECTOR ---
+    {\small DOCENTE:} \\[0.1cm]
+    {\bfseries ARÍSTIDES CABALLERO ALFARO} \\[0.6cm]
+    
+        
+    % --- LUGAR Y FECHA ---
+    \vfill
+    {\bfseries CUAUTLA, MORELOS, MÉXICO} \\
+    {\bfseries SEPTIEMBRE, 2026}
+
+\end{titlepage}
+
+% =========================================================
+% ÍNDICES
+% =========================================================
+\newpage
+\pagenumbering{roman} % Numeración romana para los índices
+
+\tableofcontents % Índice General
+\newpage
+
+\listoffigures % Índice de Figuras
+\newpage
+
+% =========================================================
+% CUERPO DEL DOCUMENTO
+% =========================================================
+\pagenumbering{arabic} % Numeración arábiga a partir de la Introducción
+
+\section{Introducción}
+Esta es una sección de prueba para la introducción del reporte. En esta sección se presenta una visión general del tema a desarrollar, contextualizando el problema y la justificación del trabajo planteado.
+
+Como parte del desarrollo, se pueden agregar referencias bibliográficas para sustentar el marco teórico y metodológico, por ejemplo: este trabajo se basa en las metodologías presentadas por \cite{mendoza2021} y los conceptos fundamentales expuestos en \cite{smith2020}.
+
+\section{Objetivos de la actividad}
+\subsection{Objetivo General}
+Diseñar una metodología para el desarrollo de juegos formativos orientados al aprendizaje significativo mediante un enfoque constructivista.
+
+\subsection{Objetivos Específicos}
+\begin{itemize}
+    \item Analizar los principios del enfoque didáctico constructivista aplicados en entornos virtuales.
+    \item Implementar modelos de sistemas retroalimentados para la evaluación continua.
+    \item Validar el impacto de la herramienta mediante un caso de estudio práctico.
+\end{itemize}
+
+\section{Marco Teórico}
+En esta sección se describen los fundamentos teóricos necesarios para comprender el desarrollo de la investigación o reporte.
+
+\subsection{Enfoque Constructivista}
+El constructivismo sostiene que el aprendizaje es un proceso activo donde el estudiante edifica nuevas ideas o conceptos basándose en su conocimiento actual y pasado.
+
+\subsection{Sistemas Retroalimentados}
+Un sistema retroalimentado permite ajustar la salida en función de las respuestas o resultados previos, garantizando un flujo continuo de mejora.
+
+\section{Desarrollo}
+En esta sección el estudiante debe describir los pasos, procedimientos, algoritmos o experimentos realizados durante la actividad.
+
+A continuación, se presenta un ejemplo de cómo incluir una figura en el documento para que aparezca automáticamente en el \textbf{Índice de Figuras}:
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{example-image} % Imagen simulada
+    \caption{Diagrama de bloques del sistema retroalimentado.}
+    \label{fig:diagrama_sistema}
+\end{figure}
+
+Como se observa en la Figura \ref{fig:diagrama_sistema}, el flujo de información se mantiene continuo a lo largo del proceso.
+
+\section{Conclusión}
+En las conclusiones se condensan los hallazgos principales alcanzados durante el desarrollo del trabajo, evaluando el cumplimiento de los objetivos planteados y proyectando posibles trabajos futuros.
+
+% =========================================================
+% BIBLIOGRAFÍA
+% =========================================================
+\newpage
+\bibliographystyle{ieeetr} % Estilo IEEE (puedes cambiarlo por apa, plain, etc.)
+\bibliography{referencias} % Archivo .bib
+
+\end{document}
