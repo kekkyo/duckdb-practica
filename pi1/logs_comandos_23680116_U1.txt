@@ -1,0 +1,57 @@
+SET force_download=true;
+CREATE TABLE datos_raw AS
+SELECT * FROM read_json_auto('https://jsonplaceholder.typicode.com/users');
+SELECT * FROM datos_raw LIMIT 2;
+┌───────┬───────────────┬───────────┬───────────────────┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┬───────────────────────┬───────────────┬─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│  id   │     name      │ username  │       email       │                                                               address                                                                │         phone         │    website    │                                                       company                                                       │
+│ int64 │    varchar    │  varchar  │      varchar      │              struct(street varchar, suite varchar, city varchar, zipcode varchar, geo struct(lat varchar, lng varchar))              │        varchar        │    varchar    │                               struct("name" varchar, catchphrase varchar, bs varchar)                               │
+├───────┼───────────────┼───────────┼───────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼───────────────────────┼───────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│     1 │ Leanne Graham │ Bret      │ Sincere@april.biz │ {'street': Kulas Light, 'suite': Apt. 556, 'city': Gwenborough, 'zipcode': 92998-3874, 'geo': {'lat': -37.3159, 'lng': 81.1496}}     │ 1-770-736-8031 x56442 │ hildegard.org │ {'name': Romaguera-Crona, 'catchPhrase': Multi-layered client-server neural-net, 'bs': harness real-time e-markets} │
+│     2 │ Ervin Howell  │ Antonette │ Shanna@melissa.tv │ {'street': Victor Plains, 'suite': Suite 879, 'city': Wisokyburgh, 'zipcode': 90566-7771, 'geo': {'lat': -43.9509, 'lng': -34.4618}} │ 010-692-6593 x09125   │ anastasia.net │ {'name': Deckow-Crist, 'catchPhrase': Proactive didactic contingency, 'bs': synergize scalable supply-chains}       │
+└───────┴───────────────┴───────────┴───────────────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴───────────────────────┴───────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+SELECT 
+address.city AS ciudad,
+COUNT(id) AS total_usuarios,
+COUNT(DISTINCT regexp_extract(email, '@(.*)$',1)) AS dominios_diferentes,
+MIN(CAST(address.geo.lat AS DOUBLE)) AS latitud_minima,
+MAX(CAST(address.geo.lat AS DOUBLE)) AS latitud_maxima,
+FROM datos_raw
+WHERE id % 2 = 0
+GROUP BY address.city
+ORDER BY total_usuarios DESC, ciudad ASC;
+┌───────────────┬────────────────┬─────────────────────┬────────────────┬────────────────┐
+│    ciudad     │ total_usuarios │ dominios_diferentes │ latitud_minima │ latitud_maxima │
+│    varchar    │     int64      │        int64        │     double     │     double     │
+├───────────────┼────────────────┼─────────────────────┼────────────────┼────────────────┤
+│ Aliyaview     │              1 │                   1 │        -14.399 │        -14.399 │
+│ Lebsackbury   │              1 │                   1 │       -38.2386 │       -38.2386 │
+│ South Christy │              1 │                   1 │       -71.4197 │       -71.4197 │
+│ South Elvis   │              1 │                   1 │        29.4572 │        29.4572 │
+│ Wisokyburgh   │              1 │                   1 │       -43.9509 │       -43.9509 │
+└───────────────┴────────────────┴─────────────────────┴────────────────┴────────────────┘
+CREATE VIEW v_datos_anonimizados AS
+SELECT id, name,
+regexp_replace(email, '^(.{2}).*(@.*)$', '$1*****$2') AS email_protegido,
+regexp_replace(phone, '.*(.{4})$', '***-***-$1') AS telefono_protegido,
+address.city AS ciudad,
+company.name AS empresa
+FROM datos_raw;
+SELECT * FROM v_datos_anonimizados LIMIT 2;
+┌───────┬───────────────┬─────────────────┬────────────────────┬─────────────┬─────────────────┐
+│  id   │     name      │ email_protegido │ telefono_protegido │   ciudad    │     empresa     │
+│ int64 │    varchar    │     varchar     │      varchar       │   varchar   │     varchar     │
+├───────┼───────────────┼─────────────────┼────────────────────┼─────────────┼─────────────────┤
+│     1 │ Leanne Graham │ $1*****$2       │ ***-***-$1         │ Gwenborough │ Romaguera-Crona │
+│     2 │ Ervin Howell  │ $1*****$2       │ ***-***-$1         │ Wisokyburgh │ Deckow-Crist    │
+└───────┴───────────────┴─────────────────┴────────────────────┴─────────────┴─────────────────┘
+CREATE TABLE historico_usuarios_seguro AS
+SELECT * FROM v_datos_anonimizados;
+FROM historico_usuarios_seguro LIMIT 2;
+┌───────┬───────────────┬─────────────────┬────────────────────┬─────────────┬─────────────────┐
+│  id   │     name      │ email_protegido │ telefono_protegido │   ciudad    │     empresa     │
+│ int64 │    varchar    │     varchar     │      varchar       │   varchar   │     varchar     │
+├───────┼───────────────┼─────────────────┼────────────────────┼─────────────┼─────────────────┤
+│     1 │ Leanne Graham │ $1*****$2       │ ***-***-$1         │ Gwenborough │ Romaguera-Crona │
+│     2 │ Ervin Howell  │ $1*****$2       │ ***-***-$1         │ Wisokyburgh │ Deckow-Crist    │
+└───────┴───────────────┴─────────────────┴────────────────────┴─────────────┴─────────────────┘
+DROP TABLE datos_raw;
