@@ -1,0 +1,16 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Introducción}{1}{section.1}%
+\contentsline {section}{\numberline {2}Objetivos de la actividad}{1}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Objetivo general}{1}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Objetivos específicos}{1}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Marco teórico}{2}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Toma de decisiones basada en datos}{2}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Tipos y fuentes de datos}{2}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Ética y privacidad en el manejo de datos}{2}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Herramientas utilizadas}{2}{section.4}%
+\contentsline {section}{\numberline {5}Desarrollo}{3}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Actividad 1: Ingesta de datos remotos mediante API REST}{3}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Actividad 2: Consulta analítica de negocio}{3}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Actividad 3: Anonimización}{4}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Registro de comandos (log)}{5}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Conclusión}{6}{section.6}%

@@ -1,0 +1,29 @@
+\begin{thebibliography}{1}
+
+\bibitem{barrionuevo-2023}
+M.~Barrionuevo and M.~E. Rodríguez, ``{Análisis de performance de base de
+  datos SQL y NoSQL aplicado a datos de entidades públicas},'' 2023.
+
+\bibitem{geeksforgeeks-2025}
+GeeksforGeeks, ``{SQL for Business Analysts},'' 7 2025.
+
+\bibitem{bridge-2024}
+Bridge, ``{Diferencias entre datos estructurados, no estructurados y
+  semiestructurados},'' 7 2024.
+
+\bibitem{privacy-by-design}
+A.~Cavoukian, ``Privacy by design: The 7 foundational principles,'' tech. rep.,
+  Information and Privacy Commissioner of Ontario, Canada, 2009.
+
+\bibitem{gdpr_art25}
+{Parlamento Europeo y el Consejo de la de la Unión Europea}, ``Reglamento
+  ({UE}) 2016/679 relativo a la protección de las personas físicas en lo que
+  respecta al tratamiento de datos personales y a la libre circulación de
+  estos datos ({Reglamento General de Protección de Datos}).'' DO L 119 de
+  4.5.2016, p. 1–88, 2016.
+\newblock Art. 25: Protección de datos desde el diseño y por defecto.
+
+\bibitem{jsonplaceholder}
+{JSONPlaceholder}, ``Free fake api for testing,'' 2026.
+
+\end{thebibliography}
